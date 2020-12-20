@@ -1,0 +1,123 @@
+## Conditions & opérateurs booléens
+
+Souvent, tu auras envie d'exécuter certaines instructions ou d'assigner une valeur à une variable selon si une condition est réunie ou non.
+
+~~~
+const age = 23;
+...
+if (age < 18) {
+	console.log("Tu es un enfant");
+}
+else if (age >= 65) {
+	console.log("Tu es un senior");
+}
+else {
+	console.log("Tu es un adulte");
+}
+~~~
+
+Dans l'exemple ci-dessus, `age` vaut 23 donc le programme affichera "Tu es un adulte". Comme tu le vois, pour spécifier des conditions on utilise le mot-clé `if` suivi d'une **expression booléenne** (qui est soit vraie, soit fausse) : les instructions à réaliser sont entre accolades et **indentées**, c'est-à-dire qu'elles commencent par une tabulation pour les séparer du reste du code.
+
+`else` permet de n'exécuter un ensemble d'instructions que si la condition précédente est fausse. On peut ainsi enchaîner les `if` et les `else` pour définir autant de conditions que l'on souhaite. À noter que les accolades sont facultatives si le bloc ne contient qu'une seule ligne, l'exemple ci-dessus pourrait donc s'écrire ainsi :
+
+~~~
+const age = 23;
+...
+if (age < 18)
+	console.log("Tu es un enfant");
+else if (age >= 65)
+	console.log("Tu es un senior");
+else
+	console.log("Tu es un adulte");
+~~~
+
+Mais revenons sur les expressions booléennes. Ces dernières utilisent une variante du langage mathématique, et notamment des **opérateurs de comparaison** :
+- `<` : inférieur
+- `<=` : inférieur ou égal
+- `>` : supérieur
+- `>=` : supérieur ou égal
+- `==` ou `===` : égal
+- `!=` ou `!==` : différent
+
+Pourquoi y a-t-il deux opérateurs différents pour l'égalité et la non-égalité ? Tout simplement parce que **l'opérateur `===` définit une égalité stricte**, contrairement à l'opérateur `==` qui définit une égalité simple, sans vérifier le type des variables. Ainsi :
+
+~~~
+console.log(42 == '42');	// true
+console.log(42 === '42');	// false
+console.log(42 === 2 * 21);	// true
+~~~
+
+**Il est préférable de toujours utiliser l'égalité stricte `===`** et son pendant `!==`, afin d'éviter des erreurs.
+
+Pour créer des conditions plus complexes, on utilise des **opérateurs booléens**. Il s'agit d'opérateurs logiques permettant de combiner des expressions booléennes. Ils sont au nombre de trois :
+- `!x` : **non** (_not_), qui inverse la valeur de l'expression booléenne `x`
+- `a && b` : **et** (_and_), qui n'est vraie que si les deux expressions booléennes `a` et `b` sont vraies
+- `a || b` : **ou** (_or_), qui n'est vraie que si au moins l'une des deux expressions booléennes `a` et `b` est vraie
+
+~~~
+const age = 23;
+...
+if (age >= 18 && age < 30)
+	console.log("Tu es jeune");
+else if (age < 2 || age >= 90)
+	console.log("Tu mets peut-être des couches");
+~~~
+
+Parfois, tu auras besoin de vérifier si une variable est définie avant d'effectuer une instruction. Pour cela, tu pourrais procéder ainsi :
+
+~~~
+const undefinedVariable;
+...
+if (undefinedVariable === undefined)
+	console.log("La variable est indéfinie");
+else
+	console.log("La variable est définie");
+~~~
+
+Mais en l’occurrence pas besoin d'opérateur de comparaison, `undefined` est directement évalué comme étant faux :
+
+~~~
+const undefinedVariable;
+...
+if (!undefinedVariable)
+	console.log("La variable est indéfinie");
+else
+	console.log("La variable est définie");
+~~~
+
+(i) Attention toutefois, `undefined` n'est pas la seule "valeur fausse" (_falsy_).
+0, une chaîne de caractères vide ou `null` sont également considérés comme faux. Pour vérifier qu'une variable est indéfinie et non pas égale à 0 par exemple, on est obligé d'utiliser l'opérateur d'égalité stricte `===` avec `undefined`.
+
+Une dernière chose dont je voulais te parler : l'**opérateur ternaire** ❤️. Souvent, tu n'auras besoin que d'un simple `if`/`else` avec une ligne pour chaque ; l'opérateur ternaire permet de le faire en une seule ligne au lieu de 4 (ou 6) :
+
+~~~
+const age = 23;
+...
+if (age < 18)
+	console.log("Tu es mineur");
+else
+	console.log("Tu es majeur");
+...
+// La même chose en plus court
+age < 18 ? console.log("Tu es mineur") : console.log("Tu es majeur");
+~~~
+
+Une condition ternaire est construite de la façon suivante : **condition** `?` **si vraie** `:` **si fausse**. L'avantage de l'opérateur ternaire, outre sa concision, est qu'il peut s'insérer dans une instruction. Par exemple, l'exemple ci-dessus pourrait être réécrit de manière encore plus concise :
+
+~~~
+const age = 23;
+console.log(age < 18 ? "Tu es mineur" : "Tu es majeur");
+...
+// Autre exemple...
+const centuryOfBirth = age >= 20 ? "20e siècle" : "21e siècle";
+console.log("Tu es né au " + centuryOfBirth);
+// Affiche "Tu es né au 20e siècle"
+~~~
+
+L'opérateur ternaire peut paraître étrange au premier abord, mais je t'encourage vraiment à l'utiliser car il est très pratique et élégant.  
+
+(S) Pour n'exécuter un bloc d'instructions que si une condition est remplie, on utilise les blocs `if`/`else`. Les instructions à exécuter sont entre accolades et indentées (décalées d’une tabulation vers la droite). S'il n'y a qu'une seule instruction dans un bloc, on peut omettre les accolades ou bien utiliser l'opérateur ternaire.
+Pour créer des conditions complexes, on utilise des opérateurs de comparaison et des opérateurs booléens (`!`, `&&` et `||`).
+Mieux vaut prendre l'habitude d'utiliser l'opérateur d'égalité stricte `===` pour comparer deux variables.
+
+***
