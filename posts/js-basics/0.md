@@ -1,0 +1,30 @@
+## Introduction
+
+~~~
+console.log('Hello world!');
+// Puisque telle est la tradition...
+~~~
+
+Lors de l'apprentissage d'un nouveau langage de programmation, la tradition est d'afficher la phrase "Hello world!". **En JavaScript, cela se fait avec la méthode `console.log()`**, qui permet d'afficher des chaînes de caractères ou des variables dans la console. Ne t'inquiète pas, on va voir juste après ce que sont des variables ou des chaînes de caractères 😉
+
+Pour ce qui est de la console, où est-elle cachée ? Si tu utilises Firefox ou Google Chrome, tu peux ouvrir la fenêtre des outils de développement en tapant **F12** ou **Ctrl+Maj+I** (sur Windows/Linux), ou bien **⌘+⌥+I** sur Mac. Tu peux également faire **Clic droit > Examiner l'élément** sur Firefox, ou **Clic droit > Inspecter** sur Chrome.
+
+Le premier onglet correspond à l'**Inspecteur**, qui te permet de te promener dans le code HTML de la page (ce qui nous servira plus tard) ; c'est le deuxième onglet, la **Console**, qui nous intéresse. Si tu y tapes la commande ci-dessus, tu devrais voir s'afficher "Hello world!" : **tu as exécuté ta première instruction en JavaScript** !
+
+(i) Pour ce tuto, tu peux utiliser la console de ton navigateur pour taper et exécuter ligne par ligne les exemples fournis, et tenter de les modifier comme tu le souhaites. Tu peux également utiliser [la console interactive disponible sur Repl.it](https://repl.it/languages/javascript).
+En pratique, tu n'utiliseras `console.log()` que pour toi, afin de débuguer ton code. La plupart des utilisateur·rice·s ne savent pas comment accéder à la console, mais maintenant tu as ce pouvoir !
+
+Dans l'exemple ci-dessus, la première ligne est ce que l'on appelle **une instruction**. Tu remarques qu'elle se termine par un point-virgule `;` : cela n'est pas obligatoire, mais en JavaScript il est conseillé de terminer chaque instruction par un point-virgule, pour bien les séparer. Ainsi, si ton code est compressé et que toutes les instructions se retrouvent sur une même ligne, le code fonctionnera toujours.
+
+La ligne juste en-dessous est ce que l'on appelle **un commentaire**. Il s'agit de texte qui n'est pas exécuté et sert simplement à préciser ce que tu as écrit aux autres développeuses et développeurs qui liront ton code (ou à toi-même si tu as la mémoire courte !) En JavaScript, les commentaires sont introduits par un double slash `//`. Il est également fréquent d'utiliser les commentaires pour conserver un morceau de code sans que l'on souhaite qu'il soit exécuté : dans ce cas on dit que l'on "commente" son code.
+
+~~~
+// console.log('Hello world!');		// Cette instruction n'est pas exécutée...
+console.log('Hello JavaScript!'); 	// ...mais celle-ci oui
+~~~
+
+(S) Un programme en JavaScript est une suite d'instructions terminées par un point-virgule.
+Pour afficher quelque chose dans la console, on utilise `console.log()`.
+Les commentaires sont du texte ou du code qui n'est pas exécuté.
+
+***

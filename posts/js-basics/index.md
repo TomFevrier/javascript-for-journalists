@@ -1,0 +1,16 @@
+---
+title: "JavaScript pour les journalistes"
+sections: [
+	"Introduction",
+	"Variables",
+	"Conditions & opérateurs booléens",
+	"Fonctions",
+	"Tableaux & manipulation de données",
+	"Objets & JSON",
+	"Conclusion (?)"
+]
+---
+
+Bienvenue dans ce tuto, qui te permettra d'apprendre les bases du JavaScript afin de réaliser des formats journalistiques interactifs sur le web. Visualisation de données, cartographie... JavaScript te permettra de réaliser tout cela et bien plus encore !
+
+Pour pouvoir comprendre les prochains tutos, il y a un certain nombre de mots de vocabulaire à connaître. À chaque fois, le terme correspondant en anglais est précisé entre parenthèses afin de faciliter les recherches et la lecture de la documentation, qui est très souvent rédigée dans la langue de Shakespeare.
