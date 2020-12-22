@@ -13,6 +13,8 @@
 </div>
 
 <style lang='scss'>
+	@import '../../global.scss';
+
 	.summary {
 		position: relative;
 		width: 60%;
@@ -35,7 +37,7 @@
 				content: "";
 				width: 100%;
 				height: 0.6rem;
-				background: #66339940;
+				background: $semi-opaque;
 				position: absolute;
 				left: 0;
 				bottom: 0.3rem;

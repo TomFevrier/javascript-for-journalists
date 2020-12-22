@@ -1,15 +1,18 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
+  "homepage": "http://tomfevrier.github.io/javascript-for-journalists",
   "scripts": {
+	"dev": "rollup -c -w",
+    "start": "sirv public",
     "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public"
+	"deploy": "gh-pages -d public"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
     "@rollup/plugin-node-resolve": "^6.0.0",
     "autoprefixer": "^9.7.5",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.13.1",
     "rollup": "^1.20.0",
     "rollup-plugin-livereload": "^1.0.0",
