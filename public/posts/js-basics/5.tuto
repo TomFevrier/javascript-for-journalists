@@ -5,7 +5,7 @@ Nous arrivons à la partie la plus excitante de JavaScript, et celle qui te sera
 Mais qu'est-ce qu'un objet au sens courant ? **Il s'agit d'une collection d'entrées, contenant chacune une _clé_ associée à une _valeur_**. Tu peux imaginer un objet comme un dictionnaire, où les clés sont les mots et les valeurs les définitions. D'ailleurs, l'équivalent en Python des objets s'appelle un dictionnaire !
 
 ~~~
-const me = {
+const person = {
 	name: "Tom",
 	age: 23,
 	knowsJavaScript: true,
@@ -18,7 +18,9 @@ console.log(person.hobbies[0])	// Affiche "coder"
 console.log(person.gender)		// Affiche undefined
 ~~~
 
-Comme tu le vois, un objet est défini de la même manière qu'un tableau, mais entre accolades : les entrées sont alors séparées par des virgules, et sont tous la forme  paires `clé: valeur`. Une valeur peut être n'importe quoi (un nombre, une chaîne, un booléen, une fonction, un tableau... voire même un autre objet !), mais une clé doit forcément être une chaîne de caractères. De la même manière qu'on accédait à un élément d'un tableau grâce à son indice, **on peut accéder à une valeur d'un objet grâce à sa clé**. On peut utiliser un point `.`, ou bien la clé (sous forme d'une chaîne de caractères) entre crochets. Si une clé n'existe pas, on obtient `undefined`. Contrairement aux éléments d'un tableau, **les entrées d'un objet ne sont pas ordonnées** : mais si tu affiches un objet dans la console avec `console.log()`, elles seront généralement affichées dans l'ordre que tu as choisi, ou bien par ordre alphabétique des clés.
+Comme tu le vois, un objet est défini de la même manière qu'un tableau, mais entre accolades : les entrées sont alors séparées par des virgules, et sont sous la forme  d'une paire `clé: valeur`. La valeur peut être n'importe quoi (un nombre, une chaîne, un booléen, une fonction, un tableau... voire même un autre objet !), mais la clé doit forcément être une chaîne de caractères. De la même manière qu'on accédait à un élément d'un tableau grâce à son indice, **on peut accéder à une valeur d'un objet grâce à sa clé**. On peut utiliser un point `.`, ou bien la clé (sous forme d'une chaîne de caractères) entre crochets, comme dans l'exemple ci-dessus.
+
+Si une clé n'existe pas, on obtient `undefined`. Contrairement aux éléments d'un tableau, **les entrées d'un objet ne sont pas ordonnées** : mais si tu affiches un objet dans la console avec `console.log()`, elles seront généralement affichées par ordre alphabétique des clés.
 
 (i) À noter que si une clé ne respecte pas les règles de nommage d'une variable (si elle contient un espace ou un signe de ponctuation, ou bien commence par un chiffre), il est également possible de mettre la clé entre guillemets (simples ou doubles).
 Dans le format JSON (dont on va parler tout de suite), les clés doivent forcément être entre guillemets doubles.
@@ -36,7 +38,7 @@ console.log(frenchTranslations["Hello!"]);			// Affiche "Salut !"
 console.log(frenchTranslations["How are you?"]);	// Affiche "Comment vas-tu ?"
 ~~~
 
-Il existe trois méthodes permettant d'obtenir les clés, les valeurs ou les entrées d'un objet sous forme de tableaux. Dans le cas d'[`Object.entries()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/entries), les entrées sont fournies sous la forme d'un tableau `[clé, valeur]`.
+Il existe trois méthodes permettant d'obtenir les clés, les valeurs ou les entrées d'un objet sous forme de tableaux. Dans le cas d'[`Object.entries()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/entries), chaque entrée est fournie sous la forme d'un tableau `[clé, valeur]`.
 
 ~~~
 const person = {
@@ -72,11 +74,11 @@ const me = {
 **Tout ça c'est bien beau, mais à quoi sert concrètement un objet ?** Laisse-moi te présenter **le format JSON**, pour _JavaScript Object Notation_ (ça se prononce comme le prénom "Jason", sauf si tu t'appelles Jules et que tu le prononces "gisons"). Il s'agit d'un format très populaire sur le web, et qui permet de stocker des données organisées de manière très flexible. Tu connais peut-être le format CSV (_Comma-Separated Values_), qui est un format universel permettant de stocker les données d'un tableur en séparant chaque cellule par une virgule :
 
 ~~~txt
-name,age,gender,species
-Arthur,32,M,Human
-Trillian,29,F,Human
-Zaphod,34,M,Betelgeusian
-Marvin,517000000000,M,Robot
+name,iq,gender,species
+Arthur,100,M,Human
+Trillian,120,F,Human
+Zaphod,50,M,Betelgeusian
+Marvin,5000000,M,Robot
 ~~~
 
 Et bien les mêmes données peuvent être représentées sous la forme d'un tableau d'objets JavaScript, ce qui permet de les manipuler :
@@ -85,25 +87,25 @@ Et bien les mêmes données peuvent être représentées sous la forme d'un tabl
 const data = [
 	{
 		name: "Arthur",
-		age: 32,
+		iq: 100,
 		gender: 'M',
 		species: 'Human'
 	},
 	{
 		name: "Trillian",
-		age: 29,
+		iq: 120,
 		gender: 'F',
 		species: 'Human'
 	},
 	{
 		name: "Zaphod",
-		age: 34,
+		iq: 50,
 		gender: 'M',
 		species: 'Betelgeusian'
 	},
 	{
 		name: "Marvin",
-		age: 517000000000,
+		iq: 5000000,
 		gender: 'M',
 		species: 'Robot'
 	}
@@ -112,32 +114,33 @@ const data = [
 // Combien y a-t-il de personnages masculins ?
 console.log(data.filter(e => e.gender === 'M').length);	// Affiche 3
 ...
-// Quel âge a Marvin ?
-console.log(data.find(e => e.name === "Marvin").age);	// Affiche 517000000000
+// Quel est le QI de Marvin ?
+console.log(data.find(e => e.name === "Marvin").iq);	// Affiche 5000000
 ...
-// Quel est l'âge moyen des personnages humains ?
+// Quel est le QI moyen des personnages humains ?
 const humanCharacters = data.filter(e => e.species === 'Human');
-// Pour calculer la moyenne, on fait la somme des âges avec reduce() puis on la divise par le nombre de personnages humains
-const meanAge = humanCharacters.reduce((acc, value) => {
-	return acc + value.age;
+// Pour calculer la moyenne, on fait la somme des QI avec reduce()
+// puis on la divise par le nombre de personnages humains
+const meanIQ = humanCharacters.reduce((acc, value) => {
+	return acc + value.iq;
 }, 0) / humanCharacters.length;
-console.log(meanAge);	// Affiche 30.5
+console.log(meanIQ);	// Affiche 110
 ~~~
 
-Tu auras souvent besoin de convertir des données CSV en JSON pour les manipuler et les visualiser. C'est ce que nous allons voir dans les prochains tutos. Tu rencontreras peut-être aussi parfois des fichiers JSON, qui ressemblent à ça :
+Tu auras souvent besoin de convertir des données CSV en JSON (ou en tableaux d'objets JavaScript) pour les manipuler et les visualiser. C'est ce que nous allons voir dans les prochains tutos. Tu rencontreras peut-être aussi parfois des fichiers JSON, qui ressemblent à ça :
 
 ~~~json
 {
 	"data": [
 		{
 			"name": "Arthur",
-			"age": 32,
+			"iq": 100,
 			"gender": "M",
 			"species": "Human"
 		},
 		{
 			"name": "Trillian",
-			"age": 29,
+			"iq": 120,
 			"gender": "F",
 			"species": "Human"
 		}
@@ -163,16 +166,19 @@ const shallowCopy = { ...me };
 // Pour faire une copie "en profondeur", il faut utiliser JSON.parse() et JSON.stringify()
 const deepCopy = JSON.parse(JSON.stringify(me));
 ...
+// Si on modifie l'objet d'origine...
 me.hobbies[2] = "faire une insomnie";
 ...
 console.log(shallowCopy.hobbies[2]);
-// Affiche "faire une insomnie", car le tableau hobbies est passé par référence lors d'une copie superficielle
+// ...affiche "faire une insomnie"
+// car le tableau hobbies est passé par référence lors d'une copie superficielle
 ...
 console.log(deepCopy.hobbies[2]);
-// Affiche "dormir", car le tableau hobbies a été copié entièrement
+// ...affiche "dormir"
+// car le tableau hobbies a été copié entièrement
 ~~~
 
-(S) Les objets sont omniprésents en JavaScript. Un objet est un ensemble non ordonné d'entrées, chacune composée d'une clé associée à une valeur. On peut accéder à la valeur d'une entrée grâce à sa clé (_key_).
+(S) Les objets sont omniprésents en JavaScript. Un objet est un ensemble non ordonné d'entrées, chacune composée d'une clé associée à une valeur. On peut accéder à la valeur d'une entrée grâce à sa clé.
 Les méthodes [`Object.keys()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/keys), [`Object.values()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/values) et [`Object.entries()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/entries) permettent d'obtenir respectivement les clés, les valeurs ou les entrées d'un objet.
 L'opérateur de décomposition `...` permet d'ajouter des entrées à un objet ou bien d'en réaliser une copie superficielle (_shallow copy_).
 Dans ton quotidien de datajournaliste, tu rencontreras les objets JavaScript sous la forme de données JSON. Les méthodes [`JSON.parse()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/parse) et [`JSON.stringify()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/stringify) te permettront de transformer des fichiers JSON en objets, et inversement. Mais elles te permettront également de réaliser une copie en profondeur d'un objet (y compris les tableaux ou objets qu'il contient).

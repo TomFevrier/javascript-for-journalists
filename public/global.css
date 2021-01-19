@@ -32,6 +32,10 @@ h2 {
 	position: relative;
 }
 
+h3 {
+	font-size: 1.6rem;
+}
+
 h2::before, h2::after {
 	color: rebeccapurple;
 	font-size: 1.1em;
@@ -74,7 +78,7 @@ p {
 
 pre {
 	border-radius: 0.25rem;
-	white-space: pre-wrap !important;
+	/* white-space: pre-wrap !important; */
 	word-break: keep-all !important;
 }
 
@@ -84,7 +88,7 @@ code {
 	font-weight: bold;
 }
 
-p code, li code, a code {
+:not(pre) > code {
 	color: rebeccapurple;
 	background: #66339940;
 	padding: 1px 2px;
@@ -154,4 +158,10 @@ button:not(:disabled):active {
 
 button:focus {
 	border-color: #666;
+}
+
+svg {
+	background: white;
+	margin: -3px 0;
+	/* border: 1px solid black; */
 }

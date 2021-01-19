@@ -1,0 +1,13 @@
+---
+title: "Dessiner sur le web avec le SVG"
+sections: [
+	"Le SVG, kézako ?",
+	"Les balises en détails",
+	"Attributs généraux & transformations",
+	"On récap' !"
+]
+---
+
+Dans ce tuto, tu découvriras les bases du format SVG, qui te permettra de visualiser des données et de réaliser des cartes sur le web.
+
+Pour mieux comprendre la syntaxe SVG, il peut être utile de connaître les bases du langage HTML ([la documentation de Mozilla en français](https://developer.mozilla.org/fr/docs/Apprendre/Commencer_avec_le_web/Les_bases_HTML) suffit amplement). Si les notions de "balises" et d'"attributs" te sont familières, tu devrais t'en sortir sans problème 😉

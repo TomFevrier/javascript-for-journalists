@@ -2,10 +2,16 @@
 	import Tutorial from './components/Tutorial.svelte';
 	import CodeSnippet from './CodeSnippet.svelte';
 
+	Object.defineProperty(Array.prototype, 'last', {
+		value: function() { return this[this.length - 1]; }
+	});
+
 	let value = 50;
 </script>
 
-<Tutorial src='posts/js-basics' />
+<!-- <Tutorial src='posts/js-basics' /> -->
+<Tutorial src='posts/drawing-with-svg' />
+
 	<!-- <input type='range' min={0} max={100} bind:value />
 	<CodeSnippet inputs={[{ key: 'width', value: value }]} /> -->
 

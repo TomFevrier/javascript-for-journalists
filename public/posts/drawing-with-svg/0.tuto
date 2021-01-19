@@ -1,0 +1,41 @@
+## Le SVG, kézako ?
+
+**Le SVG (_Scalable Vector Graphics_) est un format permettant de représenter des images vectorielles.** Dans une image vectorielle, contrairement à une image matricielle (ou _bitmap_) composée de pixels, on peut zoomer autant que l'on veut sans perdre en qualité : c'est grâce au fait qu'un graphisme vectoriel est composé de formes mathématiques simples (lignes, cercles, rectangles, chemins...) et de texte. Si tu as déjà utilisé Adobe Illustrator (ou son équivalent libre et gratuit, [Inkscape](https://inkscape.org/fr/)), tu as déjà manipulé sans forcément le savoir du SVG. Le format PDF, qui préserve la qualité du texte même en zoomant, repose également sur du graphisme vectoriel.
+
+Contrairement aux formats d'image matricielle (JPEG, PNG, etc.), où il est quasiment impossible de se représenter l'image en regardant le contenu du fichier (essaye d'ouvrir une photo avec le bloc-note et tu pourras le constater !), un fichier SVG est relativement lisible puisqu'il est constitué de balises imbriquées les unes dans les autres. Ça te dit quelque chose ? Et oui, la syntaxe SVG n'est autre que du HTML, ou du moins une variante du HTML :
+
+~~~html
+<svg width='200' height='240'>
+	<circle
+		cx='100' cy='100' r='80'
+		fill='yellow' stroke='black' stroke-width='8'/>
+	<circle
+		cx='60' cy='70' r='10'
+		fill='black'/>
+	<circle
+		cx='140' cy='70' r='10'
+		fill='black'/>
+	<line
+		x1='100' y1='100' x2='100' y2='110'
+		stroke='black' stroke-width='16' stroke-linecap='round' />
+	<rect
+		x='60' y='140' width='80' height='10'
+		fill='red'/>
+	<text
+		x='100' y='220'
+		font-family='Comic Sans MS' font-size='20' text-anchor='middle'
+		fill='rebeccapurple'
+	>
+		Je suis un artiste
+	</text>
+</svg>
+~~~
+
+Ainsi, le code ci-dessus donne cette splendide œuvre d'art :
+
+! <img src='img/svg-artwork.png' width='200' style='display: block; margin: 0 auto;' />
+
+(i) Il existe également une autre manière pour dessiner sur le web : le `<canvas>` HTML, qui permet de dessiner des formes géométriques en JavaScript. Mais contrairement au SVG, les dessins du canevas ne sont pas des éléments HTML et sont donc plus difficilement manipulables (il est par exemple nécessaire, si l'on souhaite réaliser une animation, d'effacer le canevas à chaque image avant de tout redessiner).
+En général, on préférera donc réaliser des graphiques et des cartes en SVG, même si [D3.js](https://d3js.org/) (la bibliothèque que l'on utilisera) permet également d'utiliser le `<canvas>`.
+
+***

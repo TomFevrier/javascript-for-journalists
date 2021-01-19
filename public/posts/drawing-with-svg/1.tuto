@@ -1,0 +1,100 @@
+## Les balises en détails
+
+### `<svg>`
+
+L'élément [`<svg>`](https://developer.mozilla.org/fr/docs/Web/SVG/Element/svg) est celui qui contient toutes les autres balises. Tu peux le voir comme la "toile" sur laquelle on "peint" les autres éléments. D'ailleurs, comme sur un tableau, les formes géométriques se superposent dans l'ordre où elles sont définies. Il possède 2 attributs principaux :
+- `width` : la largeur du dessin
+- `height` : la hauteur du dessin
+
+Ces deux attributs n'ont pas d'unités, mais cela se traduit par des pixels sur l'écran.
+
+[[ SVG.html ]]
+width: 200 (0-)
+height: 150 (0-300)
+
+### `<line>`
+
+L'élément [`<line>`](https://developer.mozilla.org/fr/docs/Web/SVG/Element/line) représente une ligne droite entre deux points. Il possède 4 attributs principaux :
+- `x1` : la position x du point d'origine
+- `y1` : la position y du point d'origine
+- `x2` : la position x du point d'arrivée
+- `y2` : la position y du point d'arrivée
+
+À noter que contrairement au système de coordonnées auquel tu es peut-être habitué quand tu as fait des maths, **l'origine du repère se situe en haut à gauche** ; l'axe Y va donc de haut en bas.
+
+L'élément possède également un attribut `stroke` et un attribut `stroke-width`, qui ne lui sont pas spécifiques et permettent d'indiquer respectivement la couleur de la ligne et sa largeur.
+
+[[ Line.html ]]
+x1: 50 (0-)
+y1: 50 (0-300)
+x2: 400 (0-)
+y2: 250 (0-300)
+stroke-width: 3 (0-20)
+
+### `<circle>`
+
+L'élément [`<circle>`](https://developer.mozilla.org/fr/docs/Web/SVG/Element/circle) représente un cercle. Il possède 3 attributs principaux :
+- `cx` : la position x du centre du cercle
+- `cy` : la position y du centre du cercle
+- `r` : le rayon du cercle
+
+Comme [`<line>`](https://developer.mozilla.org/fr/docs/Web/SVG/Element/line), l'élément possède un attribut `stroke` et un attribut `stroke-width` pour définir la couleur et la largeur du **contour** du cercle. Pour définir la couleur de l'intérieur du cercle, on utilise l'attribut `fill`. `stroke` ou `fill` peuvent prendre le nom d'une des [140 couleurs HTML](https://www.w3schools.com/colors/colors_names.asp), une valeur RGB sous la forme `rgb(r, g, b)` ou bien un code couleur hexadécimal.
+
+(i) En informatique, on représente les couleurs en les décomposant en leur quantité de rouge, de vert et de bleu : c'est ce qu'on appelle le **RGB**. Chaque valeur R, G et B est comprise entre 0 et 255 (cela vient du fait qu'une couleur est généralement stockée sur 24 bits, 8 bits pour chaque composante RGB). Ainsi, le rouge pur peut être représenté par `rgb(255, 0, 0)`, et le jaune (un mélange de rouge et de vert) par `rgb(255, 255, 0)`.
+Généralement on utilise plutôt la notation hexadécimale `#RRGGBB`, où chaque composante RGB est représentée par un nombre en base 16 entre `00` (0) et `FF` (255). Le vert pur peut donc être représenté par `#00FF00`, le cyan (un mélange de vert et de bleu) par `#00FFFF`, et `rebeccapurple` (le violet utilisé sur cette page) par #663399.
+
+[[ Circle.html ]]
+cx: 250 (0-)
+cy: 150 (0-300)
+r: 20 (0-100)
+stroke-width: 3 (0-20)
+
+### `<rect>`
+
+L'élément [`<rect>`](https://developer.mozilla.org/fr/docs/Web/SVG/Element/rect) représente un rectangle. Il possède 4 attributs principaux :
+- `x` : la position x **du coin en haut à gauche** du rectangle
+- `y` : la position y **du coin en haut à gauche** du rectangle
+- `width` : la largeur du rectangle
+- `height` : la hauteur du rectangle
+
+Comme d'habitude, on peut utiliser les attributs `fill`, `stroke` et `stroke-width` pour définir la couleur du rectangle ou de son contour, et la largeur du contour.
+
+[[ Rect.html ]]
+x: 50 (0-)
+y: 50 (0-300)
+width: 300 (0-)
+height: 200 (0-300)
+stroke-width: 0 (0-20)
+
+### `<path>`
+
+L'élément [`<path>`](https://developer.mozilla.org/fr/docs/Web/SVG/Element/rect) représente un chemin arbitraire, composé de segments de lignes et/ou de courbes. Si tu as déjà utilisé l'outil "Chemin" dans Adobe Illustrator ou Inkscape, c'est exactement ça ! Outre `fill`, `stroke` et `stroke-width`, il ne possède qu'un seul attribut plutôt cryptique : [`d`](https://developer.mozilla.org/fr/docs/Web/SVG/Attribute/d). Il s'agit en réalité d'une chaîne de caractères indiquant les étapes de tracé du chemin :
+- `M x, y` : _move to_, placer le pinceau à une position donnée
+- `L x, y` : _line to_, tracer une ligne droite jusqu'à une position donnée
+- `C c1x, c1y c2x, c2y x, y` : _curve to_, tracer une courbe de Béziers vers une position donnée `x, y` en fonction des points de contrôle `c1x, c1y` et `c2x, c2y`
+- etc.
+
+Inutile de connaître cette syntaxe, puisqu'en pratique on n'écrira jamais cette chaîne d'instructions soi-même : c'est [D3.js](https://d3js.org/) qui s'en chargera pour réaliser un graphique en ligne ou bien une carte.
+
+[[ Path.html ]]
+
+### `<text>`
+
+L'élément [`<text>`](https://developer.mozilla.org/fr/docs/Web/SVG/Element/text) représente du texte. Contrairement à la grande majorité des éléments SVG, c'est un élément englobant : il possède une balise ouvrante et une balise fermante, et contient le texte que l'on souhaite écrire (comme un élément `<p>`). Ses attributs principaux sont :
+- `x` : la position x du texte
+- `y` : la position y du texte
+- `text-anchor` : l'alignement du texte, qui peut valoir `start` (à gauche, par défaut), `middle` (centré) ou `end` (à droite)
+
+La couleur du texte est définie par l'attribut `fill`. La police et la taille de police peuvent être définie avec les attributs `font-family` et `font-size` respectivement, sans indiquer d'unité pour ce dernier, ou bien directement en CSS (en pixels). À noter qu'il est beaucoup plus difficile de mettre en forme du texte en SVG qu'en HTML : passer une ligne dans un texte, par exemple, relève souvent du parcours du combattant !
+
+[[ Text.html ]]
+x: 250 (0-)
+y: 250 (0-300)
+font-size: 16 (2-50)
+text-anchor: start [start, middle, end]
+
+### `<g>`
+
+L'élément [`<g>`](https://developer.mozilla.org/fr/docs/Web/SVG/Element/g) ne correspond à aucune forme géométrique. Il s'agit en fait d'un **groupe** contenant d'autres éléments SVG : il possède donc une balise ouvrante et une balise fermante, et aucun attribut spécifique. On peut le rapprocher de la balise `<div>` en HTML.
+
+***

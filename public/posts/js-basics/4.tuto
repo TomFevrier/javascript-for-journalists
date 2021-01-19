@@ -16,10 +16,10 @@ console.log(awesomeArray[2]);		// Affiche 97
 console.log(h2g2Characters.length);	// Affiche 5
 ...
 console.log(h2g2Characters[h2g2Characters.length - 1]);
-// Affiche le dernier élément du tableau
+// Affiche le dernier élément du tableau, aka "Marvin"
 ~~~
 
-Quand on souhaite stocker et manipuler des données, les tableaux sont donc très utiles. Encore plus utiles sont les nombreuses méthodes que JavaScript met à ta disposition pour manipuler et transformer les tableaux. Beaucoup de ces méthodes prennent en paramètre une fonction fléchée, qui s'applique à chaque élément du tableau. Par exemple :
+Quand on souhaite stocker et manipuler des données, les tableaux sont donc très utiles. Encore plus utiles : les nombreuses méthodes que JavaScript met à ta disposition pour manipuler et transformer les tableaux. Beaucoup de ces méthodes prennent en paramètre une fonction fléchée, qui s'applique à chaque élément du tableau. Par exemple :
 
 ~~~
 const h2g2Characters = ["Arthur", "Zaphod", "Ford", "Trillian", "Marvin"];
@@ -89,7 +89,7 @@ Dans le détail :
 
 Tu l'auras compris, dans ce cas [`reduce()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/reduce) permet tout simplement de calculer la somme des éléments d'un tableau ! [`reduce()`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/reduce) est une méthode très flexible mais perturbante au premier abord, donc ne t'inquiète pas si tout cela te semble flou pour le moment.
 
-(i) Pas besoin de connaître par cœur comment fonctionnent toutes ces méthodes ! Si tu cliques sur le nom de l'une d'entre elles, tu arriveras sur la **documentation** de Mozilla (la fondation qui édite le navigateur Firefox). Toutes les méthodes te sont expliquées, avec des exemples... et en français.
+(i) Pas besoin de connaître par cœur comment fonctionnent toutes ces méthodes ! Si tu cliques sur le nom de l'une d'entre elles, tu arriveras sur [la documentation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array) de Mozilla (la fondation qui édite le navigateur Firefox). Toutes les méthodes te sont expliquées, avec des exemples... et en français.
 On croit souvent que les développeuses et les développeurs ont une mémoire phénoménale pour retenir toutes ces notions, mais en réalité on passe notre temps à consulter de la documentation ! C'est une bonne habitude à prendre dès maintenant, de même que savoir rechercher sur Google : cela te permettra d'apprendre par toi-même par la suite.
 
 Une dernière chose à connaître sur les tableaux : l'**opérateur de décomposition** (_spread operator_). Admettons que tu souhaites ajouter un élément au début d'un tableau : tu peux utiliser l'opérateur `...` pour décomposer ton tableau en ses éléments individuels, avant de recomposer un nouveau tableau avec le nouvel élément. C'est plus facile à comprendre avec le code :
@@ -97,7 +97,7 @@ Une dernière chose à connaître sur les tableaux : l'**opérateur de décompos
 ~~~
 const h2g2Characters = ["Zaphod", "Ford", "Trillian", "Marvin"];
 const moreH2g2Characters = ["Arthur", ...h2g2Characters];
-console.log(allH2g2Characters);
+console.log(moreH2g2Characters);
 // Affiche ["Arthur", "Zaphod", "Ford", "Trillian", "Marvin"]
 ...
 // Sans l'opérateur ..., on obtiendrait un tableau dans un tableau !

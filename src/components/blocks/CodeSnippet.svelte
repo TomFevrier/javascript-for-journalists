@@ -4,13 +4,8 @@
 	import 'prism-svelte';
 	Prism.manual = true;
 
-	export let text;
-
-	$: language = text.split('\n')[0].replace(/~~~/, '') || 'js';
-
-	$: code = text.split('\n').slice(1, -1).join('\n')
-		.replace(/\n\.\.\.\n/g, '\n\n')
-		.trim();
+	export let code;
+	export let language
 </script>
 
 <pre class='language-svelte line-number'>

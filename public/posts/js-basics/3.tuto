@@ -20,13 +20,13 @@ const sum = (a, b) => {
 }
 ~~~
 
-Ici, la fonction est introduite par les caractères `=>` et est assignée à une variable `const`. Ces fonctions fléchées (_arrow functions_) ont l'avantage non seulement d'être plus courtes, mais aussi de pouvoir être écrites sur une seule ligne si elles ne consistent qu'en un `return` :
+Ici, la fonction est introduite par les caractères `=>` et est assignée à une variable `const`. Ces "fonctions fléchées" (_arrow functions_) ont l'avantage non seulement d'être plus courtes, mais aussi de pouvoir être écrites sur une seule ligne si elles ne consistent qu'en un `return` :
 
 ~~~
 const sum = (a, b) => a + b;
 ~~~
 
-Une fonction peut renvoyer toute sorte de valeurs, y compris des chaînes de caractères, des tableaux ou des objets (on va bientôt en parler 😉). Par exemple :
+Une fonction ne peut renvoyer qu'une seule valeur mais elle peut être de tout type, y compris des chaînes de caractères, des tableaux ou des objets (on va bientôt en parler 😉). Par exemple :
 
 ~~~
 const greet = (name) => `Salut ${name}, comment vas-tu ?`;

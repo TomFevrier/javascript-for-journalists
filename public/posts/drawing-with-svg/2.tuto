@@ -1,0 +1,11 @@
+## Attributs généraux & transformations
+
+On l'a vu : outre ses attributs spécifiques, n'importe quel élément SVG peut posséder un attribut `fill`, `stroke` et/ou `stroke-width`, qui s'applique à l'élément et à tous ses descendants pour lesquels l'attribut n'est pas défini.
+
+Il existe également un autre attribut général, [`transform`](https://developer.mozilla.org/fr/docs/Web/SVG/Attribute/transform), qui permet d'**appliquer une série de  transformations à un élément et à ses descendants**. On utilisera le plus souvent une seule d'entre elles, `translate(x, y)`, qui déplace l'élément de `x` unités vers la droite et de `y` unités vers le bas. Cela permet par exemple, en l'appliquant à un groupe, d'étiqueter des formes géométriques ou de positionner les axes d'un graphique.
+
+[[ Transform.html ]]
+translateX: 250 (0-)
+translateY: 150 (0-300)
+
+***

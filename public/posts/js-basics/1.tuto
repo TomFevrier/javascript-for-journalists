@@ -43,7 +43,7 @@ Pour éviter ce comportement étrange, il est préférable de toujours utiliser 
 
 **Comment nommer ses variables ?** Une variable doit être en un seul mot, et peut contenir des chiffres (mais pas au début). Je te conseille de nommer tes variables en anglais, pour plusieurs raisons : c'est en général plus court, tu n'as pas besoin de t'embêter avec les accents, et cela rend ton code plus facile à comprendre pour des anglophones si tu demandes de l'aide en ligne.
 
-Un nom de variable doit être le plus clair possible. **Si tu souhaites que le nom de ta variable contienne plusieurs mots, tu peux l'écrire en _camelCase_** (c'est-à-dire avec une majuscule au début de chaque nouveau mot, à la manière des hashtags sur Twitter). Par exemple, une variable contenant une date de naissance pourra s'appeler `dateOfBirth`.
+Un nom de variable doit être le plus clair possible. **Si tu souhaites que le nom de ta variable contienne plusieurs mots, tu peux l'écrire en _camelCase_** (c'est-à-dire avec une majuscule au début de chaque nouveau mot, à la manière des _hashtags_ sur Twitter). Par exemple, une variable contenant une date de naissance pourra s'appeler `dateOfBirth`.
 
 (i) La **_camelCase_** est une convention de nommage des variables, utilisée en JavaScript. D'autres langages utilisent la ***snake_case***, avec un tiret bas (_underscore_) entre chaque mot : c'est le cas de Python par exemple.
 Ces noms viennent de la ressemblance avec les animaux en question : les majuscules de la _camelCase_ la font ressembler à un chameau, et les tirets bas de la *snake_case* lui donnent des airs de serpent qui rampe.

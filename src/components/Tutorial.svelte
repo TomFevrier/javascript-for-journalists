@@ -6,7 +6,7 @@
 	import typografix from '../utils/typografix';
 	import readFile from '../utils/readFile';
 
-	import { CodeSnippet, Info, Navigation, Summary, TOC } from './blocks';
+	import { CodeSnippet, Info, InteractiveSnippet, Navigation, Summary, TOC } from './blocks';
 	import { Arrow, Button } from './ui';
 
 	export let src;
@@ -14,9 +14,14 @@
 	let loaded = false;
 	let data;
 	let sections;
-	let article;
 	let index = -1;
 	let scrollY;
+
+	console.log(
+		"%cBravo, tu as trouvé la console !",
+		"font-weight: bold; color: rebeccapurple; background: #66339940;",
+		"\nMais un grand pouvoir implique de grandes responsabilités..."
+	);
 
 	const intersectionObserver = new IntersectionObserver((entries, observer) => {
 		entries.forEach(entry => {
@@ -27,12 +32,15 @@
 	}, { rootMargin: `0px 0px -${window.innerHeight / 2}px 0px` });
 
 	onMount(async () => {
-		const text = await readFile(`${src}/index.md`);
+		// console.log(src)
+		const text = await readFile(`${src}/index.tuto`);
+		// console.log(text)
 		data = fm(text);
+		// console.log(data)
 		sections = await Promise.all(data.attributes.sections.map(async (title, i) => {
 			return {
 				title,
-				lines: (await readFile(`${src}/${i}.md`)).split('\n\n')
+				lines: (await readFile(`${src}/${i}.tuto`)).split('\n\n')
 			};
 		}));
 		loaded = true;
@@ -47,12 +55,12 @@
 </script>
 
 <svelte:head>
-	<title>{data && data.attributes.title}</title>
+	<title>{data ? data.attributes.title : 'Tutoriel'}</title>
 </svelte:head>
 <svelte:window bind:scrollY />
 <main>
 	{#if loaded}
-		<h1>{data.attributes.title}</h1>
+		<h1 class='balance-text'>{data.attributes.title}</h1>
 		{@html marked(typografix(data.body))}
 		<TOC
 			{sections}
@@ -61,7 +69,7 @@
 			{sections}
 			hidden={scrollY < window.innerHeight}
 			sticky bind:index />
-		<article bind:this={article}>
+		<article>
 			{#each sections as section, i}
 				<section data-index={i}>
 					{#each section.lines as line(line)}
@@ -70,8 +78,18 @@
 						{:else if line.startsWith('(S)')}
 							<Summary text={line} />
 						{:else if line.startsWith('~~~')}
-							<CodeSnippet text={line} />
+							<CodeSnippet
+								language={line.split('\n')[0].replace(/~~~/, '') || 'js'}
+								code={line.split('\n').slice(1, -1).join('\n')
+									.replace(/\n\.\.\.\n/g, '\n\n')
+									.trim()} />
+						{:else if line.startsWith('[[')}
+							<InteractiveSnippet {line} />
+						{:else if line.startsWith('!')}
+							<!-- Raw HTML -->
+							{@html line.slice(1).trim()}
 						{:else}
+							<!-- Regular MarkDown -->
 							{@html marked(typografix(line))}
 						{/if}
 					{/each}
@@ -88,5 +106,6 @@
 		width: 90%;
 		max-width: 48rem;
 		margin: 0 auto;
+		padding-bottom: 10rem;
 	}
 </style>

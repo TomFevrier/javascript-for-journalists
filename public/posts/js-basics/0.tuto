@@ -1,7 +1,7 @@
 ## Introduction
 
 ~~~
-console.log('Hello world!');
+console.log("Hello world!");
 // Puisque telle est la tradition...
 ~~~
 
@@ -16,7 +16,7 @@ En pratique, tu n'utiliseras `console.log()` que pour toi, afin de débuguer ton
 
 Dans l'exemple ci-dessus, la première ligne est ce que l'on appelle **une instruction**. Tu remarques qu'elle se termine par un point-virgule `;` : cela n'est pas obligatoire, mais en JavaScript il est conseillé de terminer chaque instruction par un point-virgule, pour bien les séparer. Ainsi, si ton code est compressé et que toutes les instructions se retrouvent sur une même ligne, le code fonctionnera toujours.
 
-La ligne juste en-dessous est ce que l'on appelle **un commentaire**. Il s'agit de texte qui n'est pas exécuté et sert simplement à préciser ce que tu as écrit aux autres développeuses et développeurs qui liront ton code (ou à toi-même si tu as la mémoire courte !) En JavaScript, les commentaires sont introduits par un double slash `//`. Il est également fréquent d'utiliser les commentaires pour conserver un morceau de code sans que l'on souhaite qu'il soit exécuté : dans ce cas on dit que l'on "commente" son code.
+La ligne juste en-dessous est ce que l'on appelle **un commentaire**. Il s'agit de texte qui n'est pas exécuté et sert simplement à préciser ce que tu as écrit aux autres développeuses et développeurs qui liront ton code (ou à toi-même si tu as la mémoire courte !) En JavaScript, les commentaires sont introduits par un double _slash_ `//`. Il est également fréquent d'utiliser les commentaires pour conserver un morceau de code sans que l'on souhaite qu'il soit exécuté : dans ce cas on dit que l'on "commente" son code.
 
 ~~~
 // console.log('Hello world!');		// Cette instruction n'est pas exécutée...
