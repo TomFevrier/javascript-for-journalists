@@ -34,6 +34,7 @@ h2 {
 
 h3 {
 	font-size: 1.6rem;
+	margin: 2rem 0 0.5rem;
 }
 
 h2::before, h2::after {

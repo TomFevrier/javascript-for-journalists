@@ -1,0 +1,15 @@
+---
+title: "Svelte : le web simplifié"
+sections: [
+    "Svelte, kézako ?",
+	"Installations & mise en place",
+    "Structure d'un composant Svelte",
+    "Un peu de réactivité",
+    "Props & bindings",
+    "Logique : conditions & boucles"
+]
+---
+
+...
+
+Pour suivre ce tuto, il te faudra connaître les bases du HTML et du CSS. À lire : la documentation de Mozilla en français sur [le HTML](https://developer.mozilla.org/fr/docs/Apprendre/Commencer_avec_le_web/Les_bases_HTML) et sur [le CSS](https://developer.mozilla.org/fr/docs/Learn/CSS/First_steps/Getting_started). Les notions de "balises", d'"attributs" et de "classes" devraient t'être familières pour la suite 😉

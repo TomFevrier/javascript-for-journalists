@@ -3,7 +3,6 @@ const scrollTo = (anchor, options = {}) => {
 	const node = anchor instanceof HTMLElement
 		? anchor
 		: document.querySelector(anchor);
-	console.log(node)
 	if (!node) return;
 	window.scrollTo({
 		top: node.getBoundingClientRect().top + window.pageYOffset - offset,

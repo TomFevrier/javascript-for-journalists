@@ -18,7 +18,6 @@
 	.summary {
 		position: relative;
 		max-width: 36rem;
-		width: 90%;
 		margin: 2rem auto;
 		padding: 1rem;
 		border: 3px solid #333;

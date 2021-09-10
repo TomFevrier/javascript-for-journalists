@@ -6,10 +6,10 @@
 	import typografix from '../utils/typografix';
 	import readFile from '../utils/readFile';
 
-	import { CodeSnippet, Info, InteractiveSnippet, Navigation, Summary, TOC } from './blocks';
-	import { Arrow, Button } from './ui';
+	import { CodeSnippet, Info, InteractiveSnippet, Navigation, Summary, TOC } from '../components/blocks';
+	import { Arrow, Button } from '../components/ui';
 
-	export let src;
+	export let params;
 
 	let loaded = false;
 	let data;
@@ -32,15 +32,13 @@
 	}, { rootMargin: `0px 0px -${window.innerHeight / 2}px 0px` });
 
 	onMount(async () => {
-		// console.log(src)
-		const text = await readFile(`${src}/index.tuto`);
-		// console.log(text)
+		const text = await readFile(`/tutorials/${params.slug}/index.tuto`);
 		data = fm(text);
-		// console.log(data)
+		console.log(data)
 		sections = await Promise.all(data.attributes.sections.map(async (title, i) => {
 			return {
 				title,
-				lines: (await readFile(`${src}/${i}.tuto`)).split('\n\n')
+				lines: (await readFile(`/tutorials/${params.slug}/${i}.tuto`)).split('\n\n')
 			};
 		}));
 		loaded = true;
@@ -82,6 +80,7 @@
 								language={line.split('\n')[0].replace(/~~~/, '') || 'js'}
 								code={line.split('\n').slice(1, -1).join('\n')
 									.replace(/\n\.\.\.\n/g, '\n\n')
+									.replace(/~~~/, '')
 									.trim()} />
 						{:else if line.startsWith('[[')}
 							<InteractiveSnippet {line} />

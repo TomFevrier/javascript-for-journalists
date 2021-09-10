@@ -5,7 +5,9 @@
 	Prism.manual = true;
 
 	export let code;
-	export let language
+	export let language;
+
+	console.log(language)
 </script>
 
 <pre class='language-svelte line-number'>

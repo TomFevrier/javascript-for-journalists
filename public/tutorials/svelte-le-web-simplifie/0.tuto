@@ -1,0 +1,10 @@
+## Svelte, kézako ?
+
+**[Svelte](https://svelte.dev/) est un _framework_ (ou "cadriciel" dans la langue de Molière) permettant de faciliter la création d'applications web.** Svelte est open-source et a été créé par Rich Harris, un journaliste graphique au New York Times.
+
+Comme tu devrais le savoir maintenant, un site web est un ensemble de code en HTML, CSS et JavaScript permettant de définir respectivement le contenu d'une page, son style, et l'interactivité. Mais développer une application web complexe peut très vite se révéler fastidieux : c'est là qu'entrent en jeu les _frameworks_ comme Svelte, permettant de générer du HTML directement en JavaScript.
+
+Svelte n'est pas le seul _framework_ qui existe : les plus connus sont sûrement [React](https://fr.reactjs.org/), créé par Facebook, et [Vue.js](https://v3.vuejs.org/). Mais Svelte a le mérite d'être - selon moi - le plus simple à apprendre (puisque sa syntaxe est assez proche du HTML/CSS/JavaScript classique), et également plus léger que ses concurrents. Svelte est de plus utilisé par de nombreux médias, comme le New York Times, le Guardian, Bloomberg et... Les Échos, puisque j'utilise aujourd'hui Svelte au quotidien quand je travaille sur [des grands-formats en infographie](https://media.lesechos.fr/infographie/). Le site sur lequel tu lis ce tuto a également été codé avec Svelte !
+
+(i) Si Svelte est aussi simple d'utilisation et léger, c'est qu'il ne s'agit pas vraiment d'un _framework_ mais plutôt d'un **compilateur**. En informatique, un compilateur est un programme permettant de transformer un code source dans un langage donné, en général facilement compréhensible par un humain, en code dans un autre langage, beaucoup plus complexe mais compréhensible par un ordinateur.
+Comme tu le verras par la suite, **Svelte peut ainsi utiliser sa propre syntaxe (proche du HTML/CSS/JavaScript mais qui n'est pas du code valide), avant de la compiler en JavaScript classique (dit "vanille")**. Cela permet d'avoir un code source très simple et beaucoup plus court qu'avec les autres frameworks, sans sacrifier la performance puisque ce code est ensuite optimisé lors de l'étape de compilation.

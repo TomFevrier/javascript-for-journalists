@@ -1,0 +1,90 @@
+## Installations & mise en place
+
+Mais avant de découvrir les joies de Svelte, il te faudra installer plusieurs choses et te familiariser avec un éditeur de texte et le terminal.
+
+Comme tous les _frameworks_ JavaScript, Svelte repose sur [Node.js](https://nodejs.org/fr/), qui est un environnement d'exécution JavaScript permettant de faire tourner du code "côté serveur", c'est-à-dire directement sur ton ordinateur et non pas dans ton navigateur. Node.js te permet également d'utiliser des centaines de milliers de modules créés par des développeurs bénévoles et accessibles via [npm](https://www.npmjs.com/) _(Node Package Manager)_. **Télécharge Node.js depuis [le site](https://nodejs.org/fr/) et suis les étapes d'installation indiquées pour ton système d'exploitation (Windows, MacOS ou Linux)**.
+
+Pour utiliser Svelte, tu auras également besoin de savoir comment accéder au terminal sur ton ordinateur. Si tu es sur Windows, tu peux lancer **PowerShell** depuis le menu Démarrer. Sur Mac, le terminal se nomme... **Terminal**, et est accessible depuis le LaunchPad. Si tu es sur Linux, je suppose que tu sais déjà comment y accéder 😜 Tu peux alors vérifier si **Node.js** et **npm** sont bien installés en tapant les commandes suivantes (suivies de la touche Entrée) :
+
+~~~txt
+node -v
+npm -v
+~~~
+
+Le numéro de version de chaque logiciel devrait s'afficher. Si tu as une erreur à la place, c'est que Node.js ne s'est pas installé correctement.
+
+Souvent, tu auras besoin d'ouvrir une fenêtre de terminal dans un dossier donné. Sur Windows, tu peux faire un clic droit sur un dossier **tout en maintenant enfoncée la touche Maj**, et tu devrais voir apparaître l'option "Ouvrir la fenêtre PowerShell ici". Sur Mac, il te faudra aller dans les Préférences, puis Clavier > Raccourcis clavier > Services, et enfin cocher la case "Nouveau terminal au dossier" : ainsi, quand tu feras un clic droit sur un dossier, l'option "Nouveau terminal au dossier" devrait apparaître.
+
+Tu auras également besoin d'installer **Git**. Sans trop rentrer dans les détails, **Git est un logiciel de gestion de versions, qui permet entre autres d'héberger son code en ligne et de collaborer à plusieurs sur le même code** - tu peux le voir comme une sorte de Google Drive pour développeur·se·s.
+
+(i) Tu as peut-être déjà entendu parler de [GitHub](https://github.com/) ou [GitLab](https://about.gitlab.com/), qui sont des exemples de plateformes utilisant Git, et qui hébergent de nombreux projets open-source (dont Svelte, Linux... et même Git lui-même !) D'ailleurs, Git et Linux ont été créés par la même personne : Linus Torvalds.
+
+Si tu es sur Windows, tu peux installer Git depuis [ce site](https://git-scm.com/download/win). Sur Mac, Git est certainement déjà installé, mais dans le cas contraire tu peux l'installer depuis [ce site](https://sourceforge.net/projects/git-osx-installer/files/), ou avec Homebrew en tapant la commande suivante :
+
+~~~txt
+brew install git
+~~~
+
+Tu peux ensuite vérifier l'installation :
+
+~~~txt
+git -v
+~~~
+
+Pour coder, il te faudra également installer un éditeur de texte. Un éditeur de texte est un bloc-notes un peu amélioré, qui te permet d'écrire du code en ayant une coloration syntaxique, de l'autocomplétion, des indentations automatiques, etc. Il en existe beaucoup, et chacun a ses adeptes, mais j'utilise personnellement [Atom](https://atom.io/), qui est simple d'utilisation et facilement personnalisable. Tu peux également utiliser [Visual Studio Code](https://code.visualstudio.com/), qui est édité par Microsoft et est aujourd'hui largement utilisé. L'un comme l'autre sont disponibles sur toutes les plateformes, et peuvent être installés via leur site respectif.
+
+Pour avoir une coloration syntaxique correcte de Svelte, il te faudra certainement installer un _plugin_. Si tu as choisi d'utiliser Atom, il te suffit de taper la commande suivante puis de relancer le logiciel :
+
+~~~txt
+apm install ide-svelte
+~~~
+
+### Mise en place
+
+Après toutes ces installations, tu es presque prêt·e à utiliser Svelte ! Ouvre un terminal dans le dossier de ton choix, puis tape les commandes suivantes :
+
+~~~txt
+npx degit sveltejs/template svelte-test
+cd svelte-test
+~~~
+
+La première commande va télécharger le _template_ de base de Svelte dans un sous-dossier nommé `svelte-test`. La seconde permet d'entrer dans ce dossier (`cd` signifie _"change directory"_).
+
+Si tu ouvres ce dossier avec Atom, tu devrais obtenir l'arborescence suivante :
+
+~~~txt
+svelte-test
+├── public/
+	├── favicon.png
+    ├── global.css
+    ├── index.html
+├── src/
+	├── App.svelte
+    ├── main.js
+├── .gitignore
+├── README.md
+├── package.json
+├── rollup.config.js
+~~~
+
+Le dossier `public/` contient le HTML et le CSS de base, en quelque sorte la "coquille" dans laquelle Svelte va injecter le code de notre application. Le dossier `src/` contient quant à lui le code source de notre application : l'important est ici `App.svelte`, qui est le point d'entrée de notre application.
+
+Les autres fichiers ne te concernent pas vraiment, à part `package.json` qui est très important : il contient notamment la liste de toutes les dépendances de l'application, c'est-à-dire les modules issus de npm dont Svelte et ton application ont besoin pour fonctionner.
+
+Si tu exécutes la commande suivante...
+
+~~~txt
+npm install
+~~~
+
+... tu verras qu'un nouveau dossier `node_modules` s'est créé. Il contient toutes les dépendances spécifiées dans `package.json`, et que tu viens d'installer avec la commande précédente. Le fichier `package.json` permet donc de partager du code sans avoir besoin de se trimbaler un dossier `node_modules` [souvent très lourd](https://indexandmain.com/images/uploads/node_modules_meme.png).
+
+Pour lancer le serveur de développement, il te suffit de lancer la commande suivante :
+
+~~~txt
+npm run dev
+~~~
+
+Ton application est maintenant visible à l'adresse [`http://localhost:5000`](http://localhost:5000). Attention, il s'agit d'une adresse locale, qui ne fonctionne que sur ton ordinateur et tant que le terminal est ouvert. Si tu souhaites publier ton application, il faudra auparavant la construire puis la déployer (on verra tout ça plus tard).
+
+***

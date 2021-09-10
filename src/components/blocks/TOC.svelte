@@ -12,7 +12,7 @@
 
 	const handleClick = (i) => {
 		index = i;
-		scrollTo(document.querySelectorAll('section')[i], { offset: 16 })
+		scrollTo(document.querySelectorAll('section')[i], { offset: 16 });
 	}
 </script>
 
@@ -24,7 +24,7 @@
 				class:selected={index === i}
 				on:click={() => handleClick(i)}
 			>
-				{section.title}
+				{@html typografix(section.title)}
 			</li>
 		{/each}
 	</ul>
@@ -57,6 +57,7 @@
 				padding-left: 1rem;
 				transition: all 0.3s ease-out;
 				position: relative;
+				line-height: 100%;
 
 				&::before {
 					content: '#';

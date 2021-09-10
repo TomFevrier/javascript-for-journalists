@@ -14,7 +14,7 @@
 	$: inputs = line.split('\n').slice(1)
 		.map(attr => {
 			const [name, content] = attr.split(':').map(e => e.trim());
-			console.log(name, content)
+			// console.log(name, content)
 			const type = content.includes('(') ? 'number' : 'string';
 			if (type === 'number') {
 				const value = +content.split('(')[0];
@@ -42,19 +42,17 @@
 			}
 		});
 
-	$: console.log(inputs, file)
-
 	onMount(async () => {
 		text = await (await fetch(`examples/${file}`)).text();
 		await tick();
-		balanceText('.balance-text');
+		balanceText();
 	});
 
 	$: code = text && inputs.reduce((code, input) => {
 		return code.replace(`{{ ${input.name.toUpperCase()} }}`, input.value);
 	}, text).replace('{{ SVG-WIDTH }}', width);
 
-	$: console.log(width)
+	// $: console.log(width)
 
 	const listify = (array) => `${array.slice(0, -1).join(', ')} et ${array.last()}`;
 
